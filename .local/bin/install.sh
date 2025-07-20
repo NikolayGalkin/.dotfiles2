@@ -18,16 +18,3 @@ dot config status.showUntrackedFiles no
 
 # source for script
 source $HOME/.zshenv
-
-function brew_install {
-  # install brew
-  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | sh
-}
-
-function mise_install {
-  # install mise
-  curl https://mise.run | sh
-  eval "$($HOME/.local/bin/mise activate zsh)"
-}
-
-exec zsh
