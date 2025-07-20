@@ -120,7 +120,7 @@ return {
       "<leader>ff",
       function()
         MiniPick.builtin.cli({
-          command = { "fd", "--hidden", "--type", "f", "--type", "d", "--exclude", ".git" },
+          command = { "fd", "--hidden", "--type", "f", "--exclude", ".git" },
         })
       end,
       desc = "Mini Files",
