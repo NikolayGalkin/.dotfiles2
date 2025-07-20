@@ -23,6 +23,9 @@ type starship_zle-keymap-select >/dev/null || \
   {
     eval "$(starship init zsh)"
   }
+eval "$(zoxide init zsh --cmd cd)"
+source <(fzf --zsh)
+
 
 source "${ZDOTDIR}/.zsh_aliases"
 
