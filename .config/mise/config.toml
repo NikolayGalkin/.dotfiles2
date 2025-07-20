@@ -1,0 +1,85 @@
+[settings]
+experimental = true
+# all_compile = true
+disable_backends = ["asdf"]
+go_set_gobin = true
+go_set_goroot = true
+go_set_gopath = true
+trusted_config_paths = ["~/repos"]
+npm.bun = true
+python.uv_venv_auto = true
+status.show_env = true
+status.truncate = false
+
+
+[env]
+'_'.file = ".env"
+RUSTUP_HOME = "{{env.XDG_CACHE_HOME}}/rustup"
+CARGO_HOME = "{{env.XDG_CACHE_HOME}}/cargo"
+NPM_CONFIG_CACHE = "{{env.XDG_CACHE_HOME}}/npm"
+EZA_CONFIG_DIR = "{{env.XDG_CONFIG_HOME}}/eza"
+ASDF_DATA_DIR = "{{env.XDG_DATA_HOME}}"
+STARSHIP_CACHE = "{{env.XDG_CACHE_HOME}}/starship"
+STARSHIP_CONFIG = "{{env.XDG_CONFIG_HOME}}/starship/starship.toml"
+BUN_INSTALL = "{{env.XDG_DATA_HOME}}/bun"
+MISE_GITHUB_TOKEN = { value = "{{env.GITHUB_TOKEN}}", redact = true }
+MISE_CACHE_DIR = "{{env.XDG_CACHE_HOME}}/mise"
+
+
+[hooks.enter]
+script = "[[ -f bin/.aliases ]] && source bin/.aliases && bat bin/.aliases"
+
+
+[tools]
+bun = "latest"
+node = "latest"
+# "npm:@mermaid-js/mermaid-cli" = "latest"
+"npm:@google/gemini-cli" = "latest"
+# "npm:sql-language-server" = "latest"
+
+# Lua
+# lua = "5.1"
+stylua = "latest"
+lua-language-server = "latest"
+
+# Rust
+"rust" = { version = "latest", components = "rust-analyzer" }
+"cargo:eza" = "latest"
+"cargo:bat" = "latest"
+"cargo:ripgrep" = "latest"
+"cargo:zoxide" = "latest"
+"cargo:fd-find" = "latest"
+"cargo:yazi-fm" = "latest"
+"cargo:git-delta" = "latest"
+"cargo:taplo-cli" = { version = "latest", features = "lsp" }
+# "cargo:cargo-binstall" = "latest"
+"cargo:loco" = "latest"
+"cargo:starship" = "latest"
+"cargo:vivid" = "latest"
+"cargo:astral-sh/uv" = { version = "latest", crate = "uv" }
+"cargo:presenterm" = "latest"
+
+# Python
+# "pipx:detect-secrets" = "latest"
+
+# Go
+go = "latest"
+"go:github.com/jesseduffield/lazygit" = "latest"
+"go:github.com/sheepla/srss" = "latest"
+"go:github.com/junegunn/fzf" = "latest"
+# "go:github.com/cli/cli/v2" = "latest"
+"go:github.com/maaslalani/slides" = "latest"
+"go:github.com/jorgerojas26/lazysql" = "latest"
+"go:github.com/jesseduffield/lazydocker" = "latest"
+
+# "http:gpgme" = { version = "2.0.0", url = "https://github.com/gpg/gpgme/archive/refs/tags/gpgme-2.0.0.tar.gz" }
+# "go:github.com/containers/podman-tui" = "latest"
+
+"github:cli/cli" = "latest"
+
+
+# Tools
+neovim = "latest"
+tree-sitter = "latest"
+marksman = "latest"
+# gemini-cli = "latest"
