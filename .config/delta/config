@@ -1,0 +1,8 @@
+[delta]
+  features = "tokyonight_night"
+  dark = true
+  line-numbers = true
+  hyperlinks = true
+  side-by-side = true
+  conflictStyle = zdiff3
+  navigate = true

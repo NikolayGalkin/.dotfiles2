@@ -1,0 +1,44 @@
+[include]
+  path = ~/.config/delta/config
+
+[user]
+	email = mykola.halkin@nixs.com
+	name = Mykola Halkin
+
+[init]
+	defaultBranch = main
+
+[core]
+	excludesfile = ~/.config/git/ignore
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+
+[merge]
+  conflictstyle = diff3
+
+; [diff]
+;   colorMoved = default
+
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[color]
+	ui = true
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	grep = yes
+
+[format]
+	signoff = true
+
+[pull]
+  rebase = true
