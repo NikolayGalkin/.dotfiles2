@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 cd $HOME
-git clone --bare git@github.com:NikolayGalkin/.dotfiles2.git $HOME/.local/share/.dotfiles
+git clone --bare git@github.com:NikolayGalkin/.dotfiles2.git $HOME/.local/share/dotfiles
 function dot {
    /usr/bin/git --git-dir=$HOME/.local/share/.dotfiles --work-tree=$HOME $@
 }
@@ -16,6 +16,18 @@ fi;
 dot checkout
 dot config status.showUntrackedFiles no
 
+# source for script
+source $HOME/.zshenv
 
-# install mise
-# curl https://mise.run | sh
+function brew-install {
+  # install brew
+  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | sh
+}
+
+function mise-install {
+  # install mise
+  curl https://mise.run | sh
+  eval "$($HOME/.local/bin/mise activate zsh)"
+}
+
+exec zsh
