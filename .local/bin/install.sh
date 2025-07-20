@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
 cd $HOME
-git clone --bare git@github.com:NikolayGalkin/.dotfiles2.git $HOME/.local/share/.dotfiles
+git clone --bare git@github.com:NikolayGalkin/.dotfiles2.git $HOME/.local/share/dotfiles
 function dot {
-   /usr/bin/git --git-dir=$HOME/.local/share/.dotfiles --work-tree=$HOME $@
+   /usr/bin/git --git-dir=$HOME/.local/share/dotfiles --work-tree=$HOME $@
 }
 mkdir -p .backup
 dot checkout
@@ -16,6 +16,5 @@ fi;
 dot checkout
 dot config status.showUntrackedFiles no
 
-
-# install mise
-# curl https://mise.run | sh
+# source for script
+source $HOME/.zshenv
