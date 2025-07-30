@@ -28,17 +28,18 @@ vim.diagnostic.config({
   },
 })
 
-vim.lsp.enable("biome")
-vim.lsp.enable("jsonls")
-vim.lsp.enable("lua_ls")
-vim.lsp.enable("marksman")
-vim.lsp.enable("pyright")
-vim.lsp.enable("ruff")
-vim.lsp.enable("rust_analyzer")
-vim.lsp.enable("taplo")
-vim.lsp.enable("ts_ls")
-vim.lsp.enable("intelephense")
-vim.lsp.enable("sqls")
+vim.lsp.enable({
+  "biome",
+  "jsonls",
+  "lua_ls",
+  "marksman",
+  "pyright",
+  "ruff",
+  "taplo",
+  "ts_ls",
+  "sqls",
+  "rust_analyzer",
+})
 
 vim.api.nvim_create_user_command("LspLog", function()
   vim.cmd.vsplit(vim.lsp.log.get_filename())

@@ -8,6 +8,12 @@ return {
   },
   keys = {
     {
+      "<leader>l",
+      ":Lazy<cr>",
+      desc = "Lazy",
+    },
+
+    {
       "<leader>gg",
       function()
         require("snacks").lazygit()

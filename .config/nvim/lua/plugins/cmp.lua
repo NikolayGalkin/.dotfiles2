@@ -2,11 +2,10 @@ return {
   "saghen/blink.cmp",
   dependencies = {
     "rafamadriz/friendly-snippets",
-    "moyiz/blink-emoji.nvim",
   },
   event = { "InsertEnter", "CmdlineEnter" },
   -- build = "cargo build --release",
-  -- version = "*",
+  version = "1.*",
 
   opts = {
     signature = { enabled = true },
@@ -16,14 +15,8 @@ return {
     },
 
     sources = {
-      default = { "lazydev", "lsp", "snippets", "path", "buffer", "cmdline", "emoji" },
+      default = { "lazydev", "lsp", "snippets", "path", "buffer", "cmdline" },
       providers = {
-        emoji = {
-          module = "blink-emoji",
-          name = "Emoji",
-          score_offset = 15, -- the higher the number, the higher the priority
-          opts = { insert = true }, -- Insert emoji (default) or complete its name
-        },
         cmdline = {
           min_keyword_length = 2,
         },
