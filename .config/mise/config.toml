@@ -53,7 +53,7 @@ lua-language-server = "latest"
 "cargo:git-delta" = "latest"
 "cargo:taplo-cli" = { version = "latest", features = "lsp" }
 # "cargo:cargo-binstall" = "latest"
-"cargo:loco" = "latest"
+# "cargo:loco" = "latest"
 "cargo:starship" = "latest"
 "cargo:vivid" = "latest"
 "cargo:astral-sh/uv" = { version = "latest", crate = "uv" }
