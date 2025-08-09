@@ -27,59 +27,62 @@ MISE_CACHE_DIR = "{{env.XDG_CACHE_HOME}}/mise"
 
 
 [hooks.enter]
+# FIX: it's not worked. 
 script = "[[ -f bin/.aliases ]] && source bin/.aliases && bat bin/.aliases"
+
+[alias]
+eza = "cargo:eza"
+bat = "cargo:bat"
+ripgrep = "cargo:ripgrep"
+zoxide = "cargo:zoxide"
+fd = "cargo:fd-find"
+yazi = "cargo:yazi-fm"
+delta = "cargo:git-delta"
+starship = "cargo:starship"
+cargo-binstall = "cargo:cargo-binstall"
+vivid = "cargo:vivid"
+uv = "cargo:astral-sh/uv"
+presenterm = "cargo:presenterm"
+lazygit = "go:github.com/jesseduffield/lazygit"
+fzf = "go:github.com/junegunn/fzf"
+slides = "go:github.com/maaslalani/slides"
+lazysql = "go:github.com/jorgerojas26/lazysql"
+lazydocker = "go:github.com/jesseduffield/lazydocker"
+zk = "github:zk-org/zk"
+gh = "github:cli/cli"
+gemini-cli = "npm:@google/gemini-cli"
 
 
 [tools]
+# env
+rust = { version = "latest", components = "rust-analyzer" }
+go = "latest"
 bun = "latest"
 node = "latest"
-# "npm:@mermaid-js/mermaid-cli" = "latest"
-"npm:@google/gemini-cli" = "latest"
-# "npm:sql-language-server" = "latest"
 
-# Lua
-# lua = "5.1"
-stylua = "latest"
-lua-language-server = "latest"
-
-# Rust
-"rust" = { version = "latest", components = "rust-analyzer" }
-"cargo:eza" = "latest"
-"cargo:bat" = "latest"
-"cargo:ripgrep" = "latest"
-"cargo:zoxide" = "latest"
-"cargo:fd-find" = "latest"
-"cargo:yazi-fm" = "latest"
-"cargo:git-delta" = "latest"
-"cargo:taplo-cli" = { version = "latest", features = "lsp" }
-# "cargo:cargo-binstall" = "latest"
-# "cargo:loco" = "latest"
-"cargo:starship" = "latest"
-"cargo:vivid" = "latest"
-"cargo:astral-sh/uv" = { version = "latest", crate = "uv" }
-"cargo:presenterm" = "latest"
+# cli
+eza = "latest"
+bat = "latest"
+ripgrep = "latest"
+zoxide = "latest"
+gemini-cli = "latest"
+fd = "latest"
+yazi = "latest"
+delta = "latest"
+starship = "latest"
+cargo-binstall = "latest"
+vivid = "latest"
+uv = "latest"
+presenterm = "latest"
+lazygit = "latest"
+fzf = "latest"
+slides = "latest"
+lazydocker = "latest"
+lazysql = "latest"
+zk = "latest"
+gh = "latest"
+tree-sitter = "latest"
+neovim = "latest"
 
 # Python
 # "pipx:detect-secrets" = "latest"
-
-# Go
-go = "latest"
-"go:github.com/jesseduffield/lazygit" = "latest"
-"go:github.com/sheepla/srss" = "latest"
-"go:github.com/junegunn/fzf" = "latest"
-# "go:github.com/cli/cli/v2" = "latest"
-"go:github.com/maaslalani/slides" = "latest"
-"go:github.com/jorgerojas26/lazysql" = "latest"
-"go:github.com/jesseduffield/lazydocker" = "latest"
-
-# "http:gpgme" = { version = "2.0.0", url = "https://github.com/gpg/gpgme/archive/refs/tags/gpgme-2.0.0.tar.gz" }
-# "go:github.com/containers/podman-tui" = "latest"
-
-"github:cli/cli" = "latest"
-
-
-# Tools
-neovim = "latest"
-tree-sitter = "latest"
-marksman = "latest"
-# gemini-cli = "latest"
