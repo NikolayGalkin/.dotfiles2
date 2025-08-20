@@ -1,9 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPost", "BufNewFile" },
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-  },
+  -- dependencies = {
+  --   "nvim-treesitter/nvim-treesitter-textobjects",
+  -- },
   build = ":TSUpdate",
   init = function()
     require("vim.treesitter.query").add_predicate("is-mise?", function(_, _, bufnr, _)
@@ -31,15 +31,15 @@ return {
           node_decremental = "<bs>",
         },
       },
-      textobjects = {
-        move = {
-          enable = true,
-          goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
-          goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
-          goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
-          goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" },
-        },
-      },
+      -- textobjects = {
+      --   move = {
+      --     enable = true,
+      --     goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
+      --     goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
+      --     goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
+      --     goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" },
+      --   },
+      -- },
     })
   end,
 }

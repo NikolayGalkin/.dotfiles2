@@ -7,11 +7,7 @@ return {
     statuscolumn = { enabled = true },
   },
   keys = {
-    {
-      "<leader>l",
-      ":Lazy<cr>",
-      desc = "Lazy",
-    },
+    { "<leader>l", ":Lazy<cr>", desc = "Lazy" },
 
     {
       "<leader>gg",
@@ -30,9 +26,9 @@ return {
     {
       "<leader>tg",
       function()
-        require("snacks").terminal("gemini", { win = { style = "float" } })
+        require("snacks").terminal("gemini", { win = { style = "float", border = "rounded" } })
       end,
-      desc = "Toggle Terminal",
+      desc = "Toggle Gemini",
     },
   },
 }

@@ -1,9 +1,10 @@
 return {
   "saghen/blink.cmp",
+  enabled = false,
   dependencies = {
     "rafamadriz/friendly-snippets",
   },
-  event = { "InsertEnter", "CmdlineEnter" },
+  event = { "InsertEnter" },
   -- build = "cargo build --release",
   version = "1.*",
 
@@ -15,7 +16,7 @@ return {
     },
 
     sources = {
-      default = { "lazydev", "lsp", "snippets", "path", "buffer", "cmdline" },
+      default = { "lsp", "snippets", "path", "buffer", "cmdline", "omni" },
       providers = {
         cmdline = {
           min_keyword_length = 2,

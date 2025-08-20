@@ -4,15 +4,15 @@ return {
     cmd = { "Gitignore" },
     opts = {},
   },
-  {
-    "rbong/vim-flog",
-    lazy = true,
-    cmd = { "Flog", "Flogsplit", "Floggit" },
-    opts = {},
-    dependencies = {
-      "tpope/vim-fugitive",
-    },
-  },
+  -- {
+  --   "rbong/vim-flog",
+  --   lazy = true,
+  --   cmd = { "Flog", "Flogsplit", "Floggit" },
+  --   opts = {},
+  --   dependencies = {
+  --     "tpope/vim-fugitive",
+  --   },
+  -- },
   {
     "isakbm/gitgraph.nvim",
     opts = {

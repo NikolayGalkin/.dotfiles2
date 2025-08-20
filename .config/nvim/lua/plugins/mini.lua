@@ -22,6 +22,28 @@ return {
           windows = true,
         },
       },
+      completion = {
+        window = {
+          info = {
+            border = "rounded",
+          },
+          signature = {
+            border = "rounded",
+          },
+        },
+        -- fallback_action = "<C-j>",
+        -- mappings = {
+        --   -- Force two-step/fallback completions
+        --   force_twostep = "<C-Space>",
+        --   force_fallback = "<A-Space>",
+        --
+        --   -- Scroll info/signature window down/up. When overriding, check for
+        --   -- conflicts with built-in keys for popup menu (like `<C-u>`/`<C-o>`
+        --   -- for 'completefunc'/'omnifunc' source function; or `<C-n>`/`<C-p>`).
+        --   scroll_down = "<C-j>",
+        --   scroll_up = "<C-k>",
+        -- },
+      },
       diff = {
         view = {
           style = "sign",
@@ -72,13 +94,21 @@ return {
     require("mini.git").setup()
     require("mini.indentscope").setup()
     require("mini.jump").setup()
-    require("mini.jump2d").setup()
+    -- require("mini.jump2d").setup()
     require("mini.diff").setup(opts.diff)
     require("mini.move").setup(opts.move)
     require("mini.pairs").setup(opts.pairs)
     require("mini.splitjoin").setup()
     require("mini.statusline").setup()
     require("mini.surround").setup()
+
+    local MiniIcons = require("mini.icons")
+    MiniIcons.setup()
+    MiniIcons.tweak_lsp_kind()
+    MiniIcons.mock_nvim_web_devicons()
+
+    local MiniCompletion = require("mini.completion")
+    MiniCompletion.setup(opts.completion)
 
     local MiniNotify = require("mini.notify")
     MiniNotify.setup(opts.notify)
@@ -102,16 +132,14 @@ return {
     MiniPick.setup(opts.pick)
     vim.ui.select = MiniPick.ui_select
 
-    local icons = require("mini.icons")
-    icons.setup()
-    icons.mock_nvim_web_devicons()
-
     local km = require("mini.keymap")
     km.setup()
     km.map_combo({ "i", "c", "x", "s" }, "jk", "<BS><BS><Esc>")
     km.map_combo({ "i", "c", "x", "s" }, "kj", "<BS><BS><Esc>")
     km.map_combo("t", "jk", "<BS><BS><C-\\><C-n>")
     km.map_combo("t", "kj", "<BS><BS><C-\\><C-n>")
+    vim.keymap.set("i", "<c-j>", [[pumvisible() ? "\<C-n>" : "\<c-j>"]], { expr = true })
+    vim.keymap.set("i", "<c-k>", [[pumvisible() ? "\<C-p>" : "\<c-k>"]], { expr = true })
   end,
   keys = {
     { "<leader>ll", ":Lazy<cr>", desc = "Lazy Help", silent = true },
@@ -119,7 +147,7 @@ return {
     {
       "<leader>ff",
       function()
-        MiniPick.builtin.cli({
+        require("mini.pick").builtin.cli({
           command = { "fd", "--hidden", "--type", "f", "--exclude", ".git" },
         })
       end,

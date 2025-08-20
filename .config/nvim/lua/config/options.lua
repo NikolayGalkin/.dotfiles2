@@ -30,6 +30,9 @@ vim.opt.scrolloff = 8
 vim.opt.backspace = { "start", "eol", "indent" }
 
 vim.opt.winborder = "rounded"
+vim.o.winborder = "rounded"
+
+vim.opt.completeopt = "menu,popup,fuzzy,noinsert"
 
 -- vim.opt.splitright = true
 -- vim.opt.splitbelow = true

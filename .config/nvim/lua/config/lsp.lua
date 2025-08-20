@@ -29,16 +29,16 @@ vim.diagnostic.config({
 })
 
 vim.lsp.enable({
-  "biome",
-  "jsonls",
-  "lua_ls",
-  "marksman",
-  "pyright",
-  "ruff",
-  "taplo",
-  "ts_ls",
-  "sqls",
-  "rust_analyzer",
+  -- "biome",
+  -- "jsonls",
+  -- "lua_ls",
+  -- "marksman",
+  -- "pyright",
+  -- "ruff",
+  -- "taplo",
+  -- "ts_ls",
+  -- "sqls",
+  -- "rust_analyzer",
 })
 
 vim.api.nvim_create_user_command("LspLog", function()
