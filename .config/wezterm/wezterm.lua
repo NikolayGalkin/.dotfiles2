@@ -20,9 +20,8 @@ config.window_background_opacity = 0.9
 -- config.color_scheme = "Tokyo Night Moon"
 config.color_scheme = "Tokyo Night"
 -- config.color_scheme = "Tokyo Night Day"
--- config.font = wezterm.font("JetBrains Mono", { weight = "Regular" })
-config.font = wezterm.font("GeistMono Nerd Font", { weight = "Regular" })
--- config.font = wezterm.font("Iosevka Nerd Font Mono", { weight = "Regular" })
+config.font = wezterm.font("JetBrains Mono", { weight = "Regular" })
+-- config.font = wezterm.font("GeistMono Nerd Font", { weight = "Regular" })
 -- config.font = wezterm.font("FiraMono Nerd Font", { weight = "Regular" })
 -- config.font = wezterm.font("Hack Nerd Font Mono", { weight = "Regular" })
 -- config.font = wezterm.font("0xProto Nerd Font Mono", { weight = "Regular" })
