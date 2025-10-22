@@ -18,36 +18,61 @@ return {
       },
     },
   },
-  -- {
-  --   "zk-org/zk-nvim",
-  --   config = function()
-  --     require("zk").setup({
-  --       picker = "minipick",
-  --
-  --       lsp = {
-  --         -- `config` is passed to `vim.lsp.start(config)`
-  --         config = {
-  --           name = "zk",
-  --           cmd = { "zk", "lsp" },
-  --           filetypes = { "markdown" },
-  --           -- on_attach = ...
-  --           -- etc, see `:h vim.lsp.start()`
-  --         },
-  --
-  --         -- automatically attach buffers in a zk notebook that match the given filetypes
-  --         auto_attach = {
-  --           enabled = true,
-  --         },
-  --       },
-  --       -- See Setup section below
-  --     })
-  --   end,
-  -- },
+  {
+    "zk-org/zk-nvim",
+    enabled = false,
+    ft = "markdown",
+    config = function()
+      require("zk").setup({
+        picker = "minipick",
+
+        lsp = {
+          -- `config` is passed to `vim.lsp.start(config)`
+          config = {
+            name = "zk",
+            cmd = { "zk", "lsp" },
+            filetypes = { "markdown" },
+            -- on_attach = ...
+            -- etc, see `:h vim.lsp.start()`
+          },
+
+          -- automatically attach buffers in a zk notebook that match the given filetypes
+          auto_attach = {
+            enabled = true,
+          },
+        },
+        -- See Setup section below
+      })
+    end,
+    keys = {
+      { "<leader>zn", ":ZkNew { title = vim.fn.input('Title: ') }<cr>", desc = "Zk New Note", silent = false },
+      { "<leader>zo", ":ZkNotes { sort = { 'modified' } }<cr>", desc = "Zk Open Notes", silent = false },
+      { "<leader>zt", ":ZkTags<cr>", desc = "Zk Open Notes By Tags", silent = false },
+      {
+        "<leader>zf",
+        ":ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<cr>",
+        desc = "Zk Search Notes",
+        silent = false,
+      },
+      { "<leader>zF", ":<,'>ZkMatch<cr>", desc = "Zk Search Notes By Selection", silent = false },
+
+      -- -- Open notes.
+      -- vim.api.nvim_set_keymap("n", "<leader>zo", "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", opts)
+      -- -- Open notes associated with the selected tags.
+      -- vim.api.nvim_set_keymap("n", "<leader>zt", "<Cmd>ZkTags<CR>", opts)
+      --
+      -- -- Search for the notes matching a given query.
+      -- vim.api.nvim_set_keymap("n", "<leader>zf", "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>", opts)
+      -- -- Search for the notes matching the current visual selection.
+      -- vim.api.nvim_set_keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>", opts)
+    },
+  },
   {
     "epwalsh/obsidian.nvim",
+    enabled = false,
     version = "*", -- recommended, use latest release instead of latest commit
     ft = "markdown",
-    enabled = false,
+    -- enabled = false,
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
     event = {
       --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
@@ -64,16 +89,17 @@ return {
       workspaces = {
         {
           name = "personal",
-          path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Personal",
+          -- path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Personal",
+          path = "~/.notes",
         },
       },
-      daily_notes = {
-        folder = "Notes",
-        date_format = "%Y/%Y-%m/%Y-%m-%d",
-        alias_format = "%B %-d, %Y",
-        default_tags = { "daily" },
-        template = "_templates/Template Daily.md",
-      },
+      -- daily_notes = {
+      --   folder = "Notes",
+      --   date_format = "%Y/%Y-%m/%Y-%m-%d",
+      --   alias_format = "%B %-d, %Y",
+      --   default_tags = { "daily" },
+      --   template = "_templates/Template Daily.md",
+      -- },
       templates = {
         folder = "_templates",
         date_format = "%Y-%m-%d",

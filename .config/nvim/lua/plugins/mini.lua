@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.nvim",
+  "nvim-mini/mini.nvim",
   event = "VeryLazy",
   opts = function()
     local ai = require("mini.ai")
@@ -31,18 +31,6 @@ return {
             border = "rounded",
           },
         },
-        -- fallback_action = "<C-j>",
-        -- mappings = {
-        --   -- Force two-step/fallback completions
-        --   force_twostep = "<C-Space>",
-        --   force_fallback = "<A-Space>",
-        --
-        --   -- Scroll info/signature window down/up. When overriding, check for
-        --   -- conflicts with built-in keys for popup menu (like `<C-u>`/`<C-o>`
-        --   -- for 'completefunc'/'omnifunc' source function; or `<C-n>`/`<C-p>`).
-        --   scroll_down = "<C-j>",
-        --   scroll_up = "<C-k>",
-        -- },
       },
       diff = {
         view = {
@@ -112,7 +100,6 @@ return {
 
     local MiniNotify = require("mini.notify")
     MiniNotify.setup(opts.notify)
-    vim.notify = MiniNotify.make_notify()
 
     local hipatterns = require("mini.hipatterns")
     hipatterns.setup({
@@ -138,9 +125,16 @@ return {
     km.map_combo({ "i", "c", "x", "s" }, "kj", "<BS><BS><Esc>")
     km.map_combo("t", "jk", "<BS><BS><C-\\><C-n>")
     km.map_combo("t", "kj", "<BS><BS><C-\\><C-n>")
+
+    km.map_combo({ "n", "x" }, "ll", "g$")
+    km.map_combo({ "n", "x" }, "hh", "g^")
+    -- km.map_combo({ "n", "x" }, "jj", "}")
+    -- km.map_combo({ "n", "x" }, "kk", "{")
+
     vim.keymap.set("i", "<c-j>", [[pumvisible() ? "\<C-n>" : "\<c-j>"]], { expr = true })
     vim.keymap.set("i", "<c-k>", [[pumvisible() ? "\<C-p>" : "\<c-k>"]], { expr = true })
   end,
+
   keys = {
     { "<leader>ll", ":Lazy<cr>", desc = "Lazy Help", silent = true },
     { "<leader>fh", ":Pick help<cr>", desc = "Mini Help", silent = true },
