@@ -24,6 +24,7 @@ STARSHIP_CONFIG = "{{env.XDG_CONFIG_HOME}}/starship/starship.toml"
 BUN_INSTALL = "{{env.XDG_DATA_HOME}}/bun"
 MISE_GITHUB_TOKEN = { value = "{{env.GITHUB_TOKEN}}", redact = true }
 MISE_CACHE_DIR = "{{env.XDG_CACHE_HOME}}/mise"
+HOMEBREW_BUNDLE_FILE = "{{env.XDG_CONFIG_HOME}}/brew/budnle"
 
 
 # [hooks.enter]
