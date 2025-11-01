@@ -2,9 +2,9 @@
 experimental = true
 # all_compile = true
 disable_backends = ["asdf"]
-go_set_gobin = true
-go_set_goroot = true
-go_set_gopath = true
+# go_set_gobin = true
+# go_set_goroot = true
+# go_set_gopath = true
 trusted_config_paths = ["~/repos"]
 npm.bun = true
 python.uv_venv_auto = true
@@ -26,9 +26,10 @@ MISE_GITHUB_TOKEN = { value = "{{env.GITHUB_TOKEN}}", redact = true }
 MISE_CACHE_DIR = "{{env.XDG_CACHE_HOME}}/mise"
 
 
-[hooks.enter]
+# [hooks.enter]
 # FIX: it's not worked. 
-script = "[[ -f bin/.aliases ]] && source bin/.aliases && bat bin/.aliases"
+# script = "[[ -f ./bin/.aliases ]] && source ./bin/.aliases && bat ~/.aliases" # Source global aliases if they exist
+
 
 [alias]
 eza = "cargo:eza"
@@ -43,22 +44,28 @@ cargo-binstall = "cargo:cargo-binstall"
 vivid = "cargo:vivid"
 uv = "cargo:astral-sh/uv"
 presenterm = "cargo:presenterm"
+
 lazygit = "go:github.com/jesseduffield/lazygit"
 fzf = "go:github.com/junegunn/fzf"
 slides = "go:github.com/maaslalani/slides"
 lazysql = "go:github.com/jorgerojas26/lazysql"
 lazydocker = "go:github.com/jesseduffield/lazydocker"
+
 zk = "github:zk-org/zk"
 gh = "github:cli/cli"
+
 gemini-cli = "npm:@google/gemini-cli"
+opencodeai = "github:sst/opencode"
+cloude-code = "npm:@anthropic-ai/claude-code"
 
 
 [tools]
 # env
-rust = { version = "latest", components = "rust-analyzer" }
-go = "latest"
+rust = { version = "stable", components = "rust-analyzer" }
 bun = "latest"
+go = "latest"
 node = "latest"
+python = "latest"
 
 # cli
 eza = "latest"
@@ -72,7 +79,6 @@ delta = "latest"
 starship = "latest"
 cargo-binstall = "latest"
 vivid = "latest"
-uv = "latest"
 presenterm = "latest"
 lazygit = "latest"
 fzf = "latest"
@@ -83,6 +89,8 @@ zk = "latest"
 gh = "latest"
 tree-sitter = "latest"
 neovim = "latest"
+opencodeai = "latest"
+# cloude-code = "latest"
 
 # Python
 # "pipx:detect-secrets" = "latest"
